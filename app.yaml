@@ -1,0 +1,57 @@
+application: fcm-catnip
+version: alpha-1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+builtins:
+- deferred: on
+- appstats: on
+- remote_api: on
+
+#
+# dependencies
+#
+
+libraries:
+- name: PIL
+  version: latest
+- name: endpoints
+  version: latest
+- name: jinja2
+  version: latest
+- name: lxml
+  version: latest
+- name: markupsafe
+  version: latest
+- name: matplotlib
+  version: latest
+- name: MySQLdb
+  version: latest
+- name: numpy
+  version: latest
+- name: protorpc
+  version: latest
+- name: PyAMF
+  version: latest
+- name: pycrypto
+  version: latest
+- name: ssl
+  version: latest
+- name: webapp2
+  version: latest
+- name: webob
+  version: latest
+- name: yaml
+  version: latest
+
+#
+# handlers
+#
+
+handlers:
+- url: /.*
+  script: gateway.application
+  login: admin
+  secure: always
+  auth_fail_action: redirect
